@@ -1,3 +1,5 @@
-export const APPROVED = "approved";
-export const PENDING = "pending";
-export const REJECTED = "rejected";
+const APPROVED = "approved";
+const PENDING = "pending";
+const REJECTED = "rejected";
+
+export { APPROVED, PENDING, REJECTED };
