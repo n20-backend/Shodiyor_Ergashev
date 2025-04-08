@@ -1,8 +1,8 @@
 import sequelize from "../config/database/db.js";
 import { DataTypes } from "sequelize";
+import { hash } from "bcrypt";
 import * as userRole from "../config/constants/index.js";
 import * as userStatus from "../config/constants/index.js";
-import { Review } from "./Review.js";
 
 export const User = sequelize.define(
   "user",
@@ -34,5 +34,10 @@ export const User = sequelize.define(
   },
   {
     underscored: true,
+    hooks: {
+      async beforeCreate(user) {
+        user.password = await hash(user.password, 8);
+      },
+    },
   }
 );
