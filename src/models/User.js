@@ -34,10 +34,5 @@ export const User = sequelize.define(
   },
   {
     underscored: true,
-    hooks: {
-      async beforeCreate(user) {
-        user.password = await hash(user.password, 8);
-      },
-    },
   }
 );
