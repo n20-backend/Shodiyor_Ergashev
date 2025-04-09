@@ -20,6 +20,14 @@ export const Review = db.define(
       type: DataTypes.ENUM(Object.values(reviewStatus)),
       allowNull: false,
     },
+    productId: {
+      type: DataTypes.UUID,
+      allowNull: false,
+    },
+    userId: {
+      type: DataTypes.UUID,
+      allowNull: false,
+    },
   },
   {
     underscored: true,

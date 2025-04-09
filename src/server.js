@@ -1,11 +1,11 @@
 import dotenv from "dotenv";
 const nodeEnv = process.env.NODE_ENV;
 let envPath;
-if (nodeEnv === "dev") {
-  envPath = ".env.dev";
-} else if (nodeEnv === "prod") {
-  envPath = ".env.prod";
-}
+// if (nodeEnv === "dev") {
+//   envPath = ".env.dev";
+// } else if (nodeEnv === "prod") {
+//   envPath = ".env.prod";
+// }
 dotenv.config({ path: `./${envPath}` });
 import app from "./app.js";
 import database from "./config/database/db.js";

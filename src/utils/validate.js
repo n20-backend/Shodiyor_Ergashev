@@ -14,3 +14,16 @@ export const productValidate = Joi.object({
   category: Joi.string().required(),
   price: Joi.number().required(),
 });
+
+export const reviewValidate = Joi.object({
+  rating: Joi.number().min(1).max(5).required().messages({
+    "number.min": "Rating should be between 1 to 5",
+    "number.max": "Rating should be between 1 to 5",
+    "any.required": "Rating is required",
+    "number.base": "Rating must be a number",
+  }),
+  content: Joi.string(),
+  status: Joi.string().required(),
+  productId: Joi.string().required(),
+  userId: Joi.string().required(),
+});
