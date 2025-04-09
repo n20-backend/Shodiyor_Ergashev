@@ -4,7 +4,7 @@ const jwtSecret = process.env.JWT_SECRET;
 export const authMiddleware = (req, res, next) => {
   const authHeader = req.headers.authorization;
 
-  console.log(authHeader, "AAAAAAAAAAAAAA");
+  // console.log(authHeader, "AAAAAAAAAAAAAA");
 
   if (!authHeader) {
     return next("Registratsiyadan o'tilmagan", 401);

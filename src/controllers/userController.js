@@ -4,9 +4,17 @@ import { Op } from "sequelize";
 import { v4 } from "uuid";
 import bcrypt from "bcrypt";
 import { generateToken } from "../utils/generateToken.js";
+import { userValidate } from "../utils/validate.js";
 
 export const createUser = async (req, res, next) => {
+  const { error, value } = userValidate.validate(req.body);
+  if (error) {
+    return res.status(400).json({
+      error: error.details[0].message,
+    });
+  }
   const { password } = req.body;
+
   const hashedPassword = await bcrypt.hash(password, 10);
 
   const newUser = {
@@ -77,6 +85,27 @@ export const login = async (req, res, next) => {
   });
 };
 
+export const getMe = async (req, res, next) => {
+  const currentUser = req.user;
+  const user = await User.findOne({
+    where: {
+      username: {
+        [Op.eq]: currentUser.username,
+      },
+    },
+  });
+
+  if (!user) {
+    return next("User not found");
+  }
+
+  res.json({
+    data: {
+      user,
+    },
+  });
+};
+
 export const getAllUsers = async (req, res, next) => {
   const allUsers = await User.findAll();
   res.json({
@@ -128,7 +157,12 @@ export const updateUser = async (req, res, next) => {
       message: "User not found",
     });
   }
-
+  const { error, value } = userValidate.validate(req.body);
+  if (error) {
+    return res.status(400).json({
+      error: error.details[0].message,
+    });
+  }
   let data = { ...req.body };
 
   if (data.password) {
