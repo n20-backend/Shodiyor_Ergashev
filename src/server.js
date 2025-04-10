@@ -6,7 +6,7 @@ let envPath;
 // } else if (nodeEnv === "prod") {
 //   envPath = ".env.prod";
 // }
-dotenv.config({ path: `./${envPath}` });
+dotenv.config();
 import app from "./app.js";
 import database from "./config/database/db.js";
 
