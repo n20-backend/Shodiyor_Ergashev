@@ -11,7 +11,7 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/product", productRouter);
 app.use("/api/v1/review", reviewRouter);
 
-app.get("/", (req, res, next) => {
+app.get("/start", (req, res, next) => {
   res.send("Ishlayapti");
 });
 
