@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "node --env-file=.env.dev src/server.js",
+    "start": "node --env-file=.env src/server.js",
     "start:dev": "node --watch --env-file=.env.dev src/server.js"
   },
   "keywords": [],
