@@ -9,7 +9,7 @@ const databaseConfig = {
   database: vars.DB_NAME,
   username: vars.DB_USER,
   password: vars.DB_PASSWORD,
-  dialect: vars.DB_DIALECT,
+  dialect: "postgres",
   // logging: vars.DB_LOGGING,
 };
 
