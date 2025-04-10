@@ -10,6 +10,7 @@ const databaseConfig = {
   username: vars.DB_USER,
   password: vars.DB_PASSWORD,
   dialect: vars.DB_DIALECT,
+  logging: vars.DB_LOGGING,
 };
 
 const database = new Sequelize(databaseConfig);
