@@ -11,11 +11,11 @@ app.use(express.json());
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/product", productRouter);
 app.use("/api/v1/review", reviewRouter);
-app.use("/api/v1/start", startRouter);
+app.use("/", startRouter);
 
-app.get("/start", (req, res, next) => {
-  res.send("Ishlayapti");
-});
+// app.get("/start", (req, res, next) => {
+//   res.send("Ishlayapti");
+// });
 
 app.use(errorHandler);
 
