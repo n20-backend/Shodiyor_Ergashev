@@ -9,9 +9,7 @@ const start = async () => {
   try {
     await database.authenticate();
     await database
-      .sync({
-        // force: true,
-      })
+      .sync()
       .then(console.log("Database sync"))
       .catch((err) => console.log("Error is here", err));
     app.listen(PORT, () => {

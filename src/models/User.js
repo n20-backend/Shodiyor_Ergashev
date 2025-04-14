@@ -1,6 +1,6 @@
 import sequelize from "../config/database/db.js";
 import { DataTypes } from "sequelize";
-import { hash } from "bcrypt";
+// import { hash } from "bcrypt";
 import * as userRole from "../config/constants/index.js";
 import * as userStatus from "../config/constants/index.js";
 
