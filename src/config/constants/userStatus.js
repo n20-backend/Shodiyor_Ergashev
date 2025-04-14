@@ -1,4 +1,4 @@
-export const ACTIVE = "active";
-export const INACTIVE = "inactive";
+const ACTIVE = "active";
+const INACTIVE = "inactive";
 
 export { ACTIVE, INACTIVE };
